@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>HOLA!!</h1>
+    <form action="/" method="post">
+      <input type="text" placeholder="parking" name="parking" value= 
+      {{request.form.parking}}>
+      <input type="text" placeholder="tv" name="tv" value= 
+      {{request.form.tv}}>
+      <br>
+      <br>
+      <input type="text" placeholder="beds" name="beds" value= 
+      {{request.form.beds}}>
+      <input type="text" placeholder="bedrooms" name="bedrooms" value= 
+      {{request.form.bedrooms}}>
+      <br>
+      <br>
+      <input type="text" placeholder="gyms" name="gyms" value= 
+      {{request.form.gyms}}>
+      <input type="text" placeholder="maximum_nights" name="maximum_nights" value= 
+      {{request.form.maximum_nights}}>
+      <br>
+      <br>
+      <input type="text" placeholder="accommodates" name="accommodates" value= 
+      {{request.form.accommodates}}>
+      <input type="text" placeholder="air_conditioning" name="air_conditioning" value= 
+      {{request.form.air_conditioning}}>
+      <br>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    <b>Calculate the price of your airbnb: </b>{{text}}
+    
+</body>
