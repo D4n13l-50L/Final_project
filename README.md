@@ -1,6 +1,11 @@
 # Final_project
 Tec de Monterrey Data Boot Camp Final Project
 
+PROJECT DESCRIPTION 
+
+Airbnb is a internet marketplace to allow any home or deparment owner rentals, It allows you to, for example, rent out your home for a week while you’re away, or rent out your empty looby or garage. One challenge that Airbnb host face is defining the optimal rent price, In many cities or areas renters are presented with a good selection istings and can filter by criteria like price, number of bedrooms, room type, and more.
+
+
 
 
 DATA DESCRIPTION 
