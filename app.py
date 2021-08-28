@@ -51,7 +51,7 @@ def model():
                 numerical_columns[7]:int(request.form['air_conditioning'])}
         user_df = pd.DataFrame(data,index=[0])
         features_predictions = knn.predict(user_df)
-        return render_template("index.html",text=str(features_predictions))
+        return render_template("index.html",text=str(features_predictions[0]))
     return render_template("index.html",text="Enter data to calculate")
 
 if __name__ == "__main__":

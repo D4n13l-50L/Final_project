@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
-    <h1>HOLA!!</h1>
-    <form action="/" method="post">
-      <input type="text" placeholder="parking" name="parking" value= 
-      {{request.form.parking}}>
-      <input type="text" placeholder="tv" name="tv" value= 
-      {{request.form.tv}}>
-      <br>
-      <br>
-      <input type="text" placeholder="beds" name="beds" value= 
-      {{request.form.beds}}>
-      <input type="text" placeholder="bedrooms" name="bedrooms" value= 
-      {{request.form.bedrooms}}>
-      <br>
-      <br>
-      <input type="text" placeholder="gyms" name="gyms" value= 
-      {{request.form.gyms}}>
-      <input type="text" placeholder="maximum_nights" name="maximum_nights" value= 
-      {{request.form.maximum_nights}}>
-      <br>
-      <br>
-      <input type="text" placeholder="accommodates" name="accommodates" value= 
-      {{request.form.accommodates}}>
-      <input type="text" placeholder="air_conditioning" name="air_conditioning" value= 
-      {{request.form.air_conditioning}}>
-      <br>
-      <br>
-      <input type="submit" value="Submit">
-    </form>
+  <form action="/" method="post">
+    <input type="text" placeholder="parking" name="parking" value={{request.form.parking}}>
+    <input type="text" placeholder="tv" name="tv" value={{request.form.tv}}>
     <br>
-    <b>Calculate the price of your airbnb: </b>{{text}}
-    
+    <br>
+    <input type="text" placeholder="beds" name="beds" value={{request.form.beds}}>
+    <input type="text" placeholder="bedrooms" name="bedrooms" value={{request.form.bedrooms}}>
+    <br>
+    <br>
+    <input type="text" placeholder="gyms" name="gyms" value={{request.form.gyms}}>
+    <input type="text" placeholder="maximum_nights" name="maximum_nights" value={{request.form.maximum_nights}}>
+    <br>
+    <br>
+    <input type="text" placeholder="accommodates" name="accommodates" value={{request.form.accommodates}}>
+    <input type="text" placeholder="air_conditioning" name="air_conditioning" value={{request.form.air_conditioning}}>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+  <b>Calculate the price of your airbnb: </b>${{text}}
+  <br>
+  <select id="myList" onchange="favTutorial()">
+    <option> ---Choose an alcaldia--- </option>
+    <option> CUAUHTEMOC </option>
+    <option> MIGUEL HIDALGO </option>
+    <option> IZTAPALAPA </option>
+    <option> AZCAPOTZALCO </option>
+    <option> VENUSTIANO CARRANZA </option>
+    <option> GUSTAVO A MADERO </option>
+    <option> COYOACAN </option>
+    <option> BENITO JUAREZ </option>
+    <option> IZTACALCO </option>
+    <option> TLAHUAC </option>
+    <option> MILPA ALTA </option>
+    <option> TLALPAN </option>
+    <option> CUAJIMALPA </option>
+    <option> ALVARO OBREGON </option>
+    <option> MAGDALENA CONTRERAS </option>
+    <option> XOCHIMILCO </option>
+  </select>
+  <img id="img1">
+  <img id="img2">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    function favTutorial() {
+      var repository = {"CUAUHTEMOC":[
+      "https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Cuah.png?raw=true"],
+      "MIGUEL HIDALGO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Mig_Hid.png?raw=true"],
+      "IZTAPALAPA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Izta.png?raw=true"],
+      "AZCAPOTZALCO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Azc.png?raw=true"],
+      "VENUSTIANO CARRANZA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_VenCA.png?raw=true"],
+      "GUSTAVO A MADERO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_GAM.png?raw=true"],
+      "COYOACAN":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Coyoacan.png?raw=true"],
+      "BENITO JUAREZ":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Benito_juarez.png?raw=true"],
+      "IZTACALCO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Izt.png?raw=true"],
+      "TLAHUAC":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Tlahuac.png?raw=true"],
+      "MILPA ALTA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Milpa.png?raw=true"],
+      "TLALPAN":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Tlal.png?raw=true"],
+      "CUAJIMALPA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Cuaji.png?raw=true"],
+      "ALVARO OBREGON":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Aobregon.png?raw=true"],
+      "MAGDALENA CONTRERAS":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_MagCon.png?raw=true"],
+      "XOCHIMILCO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Xoc.png?raw=true"]
+      }
+      var mylist = document.getElementById("myList");
+      var myalcaldia = mylist.options[mylist.selectedIndex].text;
+      d3.selectAll("#img1")
+        .attr("src", repository[myalcaldia][0])
+        .attr("width", 400)
+        .attr("height", 400);
+        d3.selectAll("#img2")
+        .attr("src", "https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Graphs%20and%20tables/prices%20by%20alcaldia.png?raw=true")
+        .attr("width", 400)
+        .attr("height", 400);
+    }
+  </script>
 </body>
