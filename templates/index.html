@@ -4,42 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <title>Sectores de la CDMX</title>
-  <style>body {
-    padding: 0;
-    margin: 0;
-    background-image: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80");
-    background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat: repeat;
-    background-size: cover;
-  }
-  
-  #map {
-    width: 550px;
-    height: 500px;
-    padding: 0;
-    margin: 0;
-    block-size: 550px;
-  }
-  
-  #jumbotron {
-    height: 85px;
-    background-size: 15px
-  }
-  
-  #forms {
-    background-color: white;
-    width: 566px;
-  }
-  
-  #img3 {
-    padding: 0;
-    width: 500px;
-    block-size: 350px;
-    margin-left: auto;
-  
-  }</style>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-image: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80");
+      background-color: #cccccc;
+      height: 500px;
+      background-position: center;
+      background-repeat: repeat;
+      background-size: cover;
+    }
+
+    #map {
+      width: 550px;
+      height: 500px;
+      padding: 0;
+      margin: 0;
+      block-size: 550px;
+    }
+
+    #jumbotron {
+      height: 85px;
+      background-size: 15px
+    }
+
+    #forms {
+      background-color: white;
+      width: 566px;
+    }
+
+    #img3 {
+      padding: 0;
+      width: 500px;
+      block-size: 350px;
+      margin-left: auto;
+
+    }
+  </style>
 
   <!-- boostrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -63,7 +65,8 @@
   <div class="container">
     <div class='row'>
       <div id='jumbotron' class="col-md-12 jumbotron text-center">
-        <img src="https://github.com/scmo-ops/data/blob/main/airbnb.PNG?raw=true" style="height:250px">
+        <img src="https://github.com/D4n13l-50L/Final_project/blob/main/templates/images/airbnb.PNG?raw=true"
+          style="height:250px">
       </div>
 
       <!-- Nav Bar -->
@@ -172,7 +175,7 @@
     </div>
     <script>
       // API key
-const API_KEY = "pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlwNCJ9.v-6VYAXI_ZfI7oq0OcXdgw";
+      const API_KEY = "pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlwNCJ9.v-6VYAXI_ZfI7oq0OcXdgw";
     </script>
 
     <script>
@@ -224,7 +227,7 @@ const API_KEY = "pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlw
         maxZoom: 18,
         zoomOffset: -1,
         id: "mapbox/streets-v11",
-        accessToken: API_KEY
+        accessToken: 'pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlwNCJ9.v-6VYAXI_ZfI7oq0OcXdgw'
       }).addTo(myMap);
 
       // Use this link to get the geojson data.
@@ -311,6 +314,7 @@ const API_KEY = "pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlw
         }).addTo(myMap);
       });
 
+
 //var airbnb_csv = 'https://raw.githubusercontent.com/scmo-ops/data/main/coordinates.csv?token=ASYHR5BHYE5SGU3ZERIL6DTBFI4D4';
 
 //  Grab Airbnb data
@@ -357,10 +361,6 @@ const API_KEY = "pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlw
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
       integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
       crossorigin=""></script>
-    <!-- API key -->
-    <script type="text/javascript" src="static/js/config.js"></script>
-    <!-- JS  -->
-    <script type="text/javascript" src="static/js/geo.js"></script>
 
 </body>
 
