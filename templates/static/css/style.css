@@ -10,7 +10,7 @@ body {
 }
 
 #map {
-  width: 700px;
+  width: 550px;
   height: 500px;
   padding: 0;
   margin: 0;
@@ -20,5 +20,18 @@ body {
 #jumbotron {
   height: 85px;
   background-size: 15px
+}
+
+#forms {
+  background-color: white;
+  width: 566px;
+}
+
+#img3 {
+  padding: 0;
+  width: 500px;
+  block-size: 350px;
+  margin-left: auto;
+
 }
 

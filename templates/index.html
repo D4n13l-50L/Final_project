@@ -1,81 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sectores de la CDMX</title>
+  <style>body {
+    padding: 0;
+    margin: 0;
+    background-image: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+  }
+  
+  #map {
+    width: 550px;
+    height: 500px;
+    padding: 0;
+    margin: 0;
+    block-size: 550px;
+  }
+  
+  #jumbotron {
+    height: 85px;
+    background-size: 15px
+  }
+  
+  #forms {
+    background-color: white;
+    width: 566px;
+  }
+  
+  #img3 {
+    padding: 0;
+    width: 500px;
+    block-size: 350px;
+    margin-left: auto;
+  
+  }</style>
+
+  <!-- boostrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin="" />
+
+  <!-- d3 JavaScript -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="static/js/">
+
+</head>
 
 <body>
-  <form action="/" method="post">
-    <input type="text" placeholder="parking" name="parking" value={{request.form.parking}}>
-    <input type="text" placeholder="tv" name="tv" value={{request.form.tv}}>
-    <br>
-    <br>
-    <input type="text" placeholder="beds" name="beds" value={{request.form.beds}}>
-    <input type="text" placeholder="bedrooms" name="bedrooms" value={{request.form.bedrooms}}>
-    <br>
-    <br>
-    <input type="text" placeholder="gyms" name="gyms" value={{request.form.gyms}}>
-    <input type="text" placeholder="maximum_nights" name="maximum_nights" value={{request.form.maximum_nights}}>
-    <br>
-    <br>
-    <input type="text" placeholder="accommodates" name="accommodates" value={{request.form.accommodates}}>
-    <input type="text" placeholder="air_conditioning" name="air_conditioning" value={{request.form.air_conditioning}}>
-    <br>
-    <br>
-    <input type="submit" value="Submit">
-  </form>
-  <br>
-  <b>Calculate the price of your airbnb: </b>${{text}}
-  <br>
-  <select id="myList" onchange="favTutorial()">
-    <option> ---Choose an alcaldia--- </option>
-    <option> CUAUHTEMOC </option>
-    <option> MIGUEL HIDALGO </option>
-    <option> IZTAPALAPA </option>
-    <option> AZCAPOTZALCO </option>
-    <option> VENUSTIANO CARRANZA </option>
-    <option> GUSTAVO A MADERO </option>
-    <option> COYOACAN </option>
-    <option> BENITO JUAREZ </option>
-    <option> IZTACALCO </option>
-    <option> TLAHUAC </option>
-    <option> MILPA ALTA </option>
-    <option> TLALPAN </option>
-    <option> CUAJIMALPA </option>
-    <option> ALVARO OBREGON </option>
-    <option> MAGDALENA CONTRERAS </option>
-    <option> XOCHIMILCO </option>
-  </select>
-  <img id="img1">
-  <img id="img2">
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script>
-    function favTutorial() {
-      var repository = {"CUAUHTEMOC":[
-      "https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Cuah.png?raw=true"],
-      "MIGUEL HIDALGO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Mig_Hid.png?raw=true"],
-      "IZTAPALAPA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Izta.png?raw=true"],
-      "AZCAPOTZALCO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Azc.png?raw=true"],
-      "VENUSTIANO CARRANZA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_VenCA.png?raw=true"],
-      "GUSTAVO A MADERO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_GAM.png?raw=true"],
-      "COYOACAN":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Coyoacan.png?raw=true"],
-      "BENITO JUAREZ":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Benito_juarez.png?raw=true"],
-      "IZTACALCO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Izt.png?raw=true"],
-      "TLAHUAC":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Tlahuac.png?raw=true"],
-      "MILPA ALTA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Milpa.png?raw=true"],
-      "TLALPAN":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Tlal.png?raw=true"],
-      "CUAJIMALPA":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Cuaji.png?raw=true"],
-      "ALVARO OBREGON":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Aobregon.png?raw=true"],
-      "MAGDALENA CONTRERAS":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_MagCon.png?raw=true"],
-      "XOCHIMILCO":["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Xoc.png?raw=true"]
-      }
-      var mylist = document.getElementById("myList");
-      var myalcaldia = mylist.options[mylist.selectedIndex].text;
-      d3.selectAll("#img1")
-        .attr("src", repository[myalcaldia][0])
-        .attr("width", 400)
-        .attr("height", 400);
+
+  <div class="container">
+    <div class='row'>
+      <div id='jumbotron' class="col-md-12 jumbotron text-center">
+        <img src="https://github.com/scmo-ops/data/blob/main/airbnb.PNG?raw=true" style="height:250px">
+      </div>
+
+      <!-- Nav Bar -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="row">
+
+        <nav id='bar1' class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Airbnb Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- map div -->
+      <div id="map" class="col-md-6"></div>
+      <div id="forms" class="col-md-6">
+        <form action="/" method="post">
+          <input type="text" placeholder="parking" name="parking" value={{request.form.parking}}>
+          <input type="text" placeholder="tv" name="tv" value={{request.form.tv}}>
+          <br>
+          <br>
+          <input type="text" placeholder="beds" name="beds" value={{request.form.beds}}>
+          <input type="text" placeholder="bedrooms" name="bedrooms" value={{request.form.bedrooms}}>
+          <br>
+          <br>
+          <input type="text" placeholder="gyms" name="gyms" value={{request.form.gyms}}>
+          <input type="text" placeholder="maximum_nights" name="maximum_nights" value={{request.form.maximum_nights}}>
+          <br>
+          <br>
+          <input type="text" placeholder="accommodates" name="accommodates" value={{request.form.accommodates}}>
+          <input type="text" placeholder="air_conditioning" name="air_conditioning"
+            value={{request.form.air_conditioning}}>
+          <br>
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+
+        <b>Calculate the price of your airbnb: </b>${{text}}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <b>Display data about alcaldia</b>
+        <select id="myList" onchange="favTutorial()">
+          <option> ---Choose an alcaldia--- </option>
+          <option> CUAUHTEMOC </option>
+          <option> MIGUEL HIDALGO </option>
+          <option> IZTAPALAPA </option>
+          <option> AZCAPOTZALCO </option>
+          <option> VENUSTIANO CARRANZA </option>
+          <option> GUSTAVO A MADERO </option>
+          <option> COYOACAN </option>
+          <option> BENITO JUAREZ </option>
+          <option> IZTACALCO </option>
+          <option> TLAHUAC </option>
+          <option> MILPA ALTA </option>
+          <option> TLALPAN </option>
+          <option> CUAJIMALPA </option>
+          <option> ALVARO OBREGON </option>
+          <option> MAGDALENA CONTRERAS </option>
+          <option> XOCHIMILCO </option>
+        </select>
+
+      </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h1 style="color: black">Rent prices Data</h1>
+      </div>
+      <div class="col-md-6">
+        <h1 style="color: black">Data wordCloud</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <img id='img3'
+          src="https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Graphs%20and%20tables/prices%20by%20alcaldia.png?raw=true">
+      </div>
+      <div class="col-md-5"
+        style='background-image: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80")'>
+        <img id='img1'>
+      </div>
+
+    </div>
+    <script>
+      // API key
+const API_KEY = "pk.eyJ1Ijoic2Ntby11cHMiLCJhIjoiY2txc295ejFoMXphczJxc2JkcDR0MTlwNCJ9.v-6VYAXI_ZfI7oq0OcXdgw";
+    </script>
+
+    <script>
+      function favTutorial() {
+        var repository = {
+          "CUAUHTEMOC": [
+            "https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Cuah.png?raw=true"],
+          "MIGUEL HIDALGO": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Mig_Hid.png?raw=true"],
+          "IZTAPALAPA": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Izta.png?raw=true"],
+          "AZCAPOTZALCO": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Azc.png?raw=true"],
+          "VENUSTIANO CARRANZA": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_VenCA.png?raw=true"],
+          "GUSTAVO A MADERO": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_GAM.png?raw=true"],
+          "COYOACAN": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Coyoacan.png?raw=true"],
+          "BENITO JUAREZ": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Benito_juarez.png?raw=true"],
+          "IZTACALCO": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Izt.png?raw=true"],
+          "TLAHUAC": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Tlahuac.png?raw=true"],
+          "MILPA ALTA": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Milpa.png?raw=true"],
+          "TLALPAN": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Tlal.png?raw=true"],
+          "CUAJIMALPA": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Cuaji.png?raw=true"],
+          "ALVARO OBREGON": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Aobregon.png?raw=true"],
+          "MAGDALENA CONTRERAS": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_MagCon.png?raw=true"],
+          "XOCHIMILCO": ["https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Worldcloud/worldcloud_Xoc.png?raw=true"]
+        }
+        var mylist = document.getElementById("myList");
+        var myalcaldia = mylist.options[mylist.selectedIndex].text;
+        d3.selectAll("#img1")
+          .attr("src", repository[myalcaldia][0])
+          .attr("width", 400)
+          .attr("height", 350);
         d3.selectAll("#img2")
-        .attr("src", "https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Graphs%20and%20tables/prices%20by%20alcaldia.png?raw=true")
-        .attr("width", 400)
-        .attr("height", 400);
-    }
-  </script>
+          .attr("src", "https://github.com/D4n13l-50L/Final_project/blob/main/Resources/Graphs%20and%20tables/prices%20by%20alcaldia.png?raw=true")
+          .attr("width", 400)
+          .attr("height", 400);
+      }
+    </script>
+    <script>
+      // map
+
+      var myMap = L.map("map", {
+        center: [19.424135, -99.067266],
+        zoom: 11
+      });
+
+      // tile layer
+
+      L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+        attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+        tileSize: 512,
+        maxZoom: 18,
+        zoomOffset: -1,
+        id: "mapbox/streets-v11",
+        accessToken: API_KEY
+      }).addTo(myMap);
+
+      // Use this link to get the geojson data.
+      var link = "static/data/sectores.geojson";
+
+      // Function that will determine the color of a neighborhood based on the delegacion it belongs to
+      function chooseColor(ddelegacion) {
+        switch (ddelegacion) {
+          case "VENUSTIANO CARRANZA":
+            return "yellow";
+          case "CUAUHTEMOC":
+            return "red";
+          case "MIGUEL HIDALGO":
+            return "orange";
+          case "IZTAPALAPA":
+            return "green";
+          case "AZCAPOTZALCO":
+            return "purple";
+          case 'GUSTAVO A MADERO':
+            return 'blue';
+          case 'COYOACAN':
+            return 'grey';
+          case 'BENITO JUAREZ':
+            return 'teal';
+          case 'IZTACALCO':
+            return 'pink';
+          case 'TLAHUAC':
+            return 'brown';
+          case 'MILPA ALTA':
+            return 'fuchsia';
+          case 'TLALPAN':
+            return 'silver';
+          case 'CUAJIMALPA':
+            return 'lime';
+          case 'ALVARO OBREGON':
+            return 'olive';
+          case 'MAGDALENA CONTRERAS':
+            return 'navy';
+          default:
+            return "black";
+        }
+      }
+
+      // GeoJSON data
+
+      d3.json(link).then(function (data) {
+
+        L.geoJson(data, {
+          style: function (feature) {
+            return {
+              color: 'white',
+              // call to the choosecolor funtion
+              fillColor: chooseColor(feature.properties.delegacion),
+              fillOpacity: 0.5,
+              wight: 1.5
+            };
+          },
+          onEachFeature: function (feature, layer) {
+            layer.on({
+              mouseover: function (event) {
+                layer = event.target;
+                layer.setStyle({
+                  fillOpacity: 0.9
+                });
+              },
+              mouseout: function (event) {
+                layer = event.target;
+                layer.setStyle({
+                  fillOpacity: 0.5
+                });
+              },
+              click: function (event) {
+                layer = event.target;
+                layer.setStyle({
+                  fillOpacity: 0.5
+                });
+              },
+              click: function (event) {
+                myMap.fitBounds(event.target.getBounds());
+              }
+            });
+            layer.bindPopup("<h1>" + feature.properties.delegacion + "</h1> <hr> <h2>" + feature.properties.delegacion + "</h2>");
+          }
+        }).addTo(myMap);
+      });
+
+//var airbnb_csv = 'https://raw.githubusercontent.com/scmo-ops/data/main/coordinates.csv?token=ASYHR5BHYE5SGU3ZERIL6DTBFI4D4';
+
+//  Grab Airbnb data
+// d3.csv(airbnb_csv, function(data) {
+
+//     console.log(data.id);
+//     console.log(data.latitude);
+//     console.log(data.longitude)
+// });
+
+// d3.csv(airbnb_csv).then(function(response) {
+
+//   var markers = L.markerClusterGroup();
+
+//   // Loop
+//   for (var i = 0; i < response.length; i++) {
+
+//     // Set the data location property to a variable
+//     var lat = response[i].latitude;
+//     var long = response[i].longitude;
+
+//     // Check for location property
+//     if (lat) {
+
+//       // Add a new marker to the cluster group and bind a pop-up
+//       markers.addLayer(L.marker([lat, long])
+//         .bindPopup(response[i].description));
+//     }
+
+//   };
+// });
+    </script>
+
+
+
+
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+      integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+      crossorigin=""></script>
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- JS  -->
+    <script type="text/javascript" src="static/js/geo.js"></script>
+
 </body>
+
+</html>

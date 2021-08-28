@@ -100,21 +100,34 @@ d3.json(link).then(function(data) {
   }).addTo(myMap);
 });
 
-var airbnb_csv = '../Resources/xd.csv';
+//var airbnb_csv = 'https://raw.githubusercontent.com/scmo-ops/data/main/coordinates.csv?token=ASYHR5BHYE5SGU3ZERIL6DTBFI4D4';
 
 //  Grab Airbnb data
-d3.csv(airbnb_csv, function(data) {
+// d3.csv(airbnb_csv, function(data) {
 
-      console.log(data.Name);
-      console.log(data.Age);
-});
+//     console.log(data.id);
+//     console.log(data.latitude);
+//     console.log(data.longitude)
+// });
 
-// mock tables 
-// d3.select("tbody")
-// .selectAll("tr")
-// .data(austinWeather)
-// .enter()
-// .append("tr")
-// .html(function(d) {
-//   return `<td>${d.date}</td><td>${d.low}</td><td>${d.high}</td>`;
+// d3.csv(airbnb_csv).then(function(response) {
+
+//   var markers = L.markerClusterGroup();
+
+//   // Loop
+//   for (var i = 0; i < response.length; i++) {
+
+//     // Set the data location property to a variable
+//     var lat = response[i].latitude;
+//     var long = response[i].longitude;
+
+//     // Check for location property
+//     if (lat) {
+
+//       // Add a new marker to the cluster group and bind a pop-up
+//       markers.addLayer(L.marker([lat, long])
+//         .bindPopup(response[i].description));
+//     }
+
+//   };
 // });
