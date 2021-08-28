@@ -20,8 +20,8 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 var link = "static/data/sectores.geojson";
 
 // Function that will determine the color of a neighborhood based on the delegacion it belongs to
-function chooseColor(delegation) {
-  switch (delegation) {
+function chooseColor(ddelegacion) {
+  switch (ddelegacion) {
   case "VENUSTIANO CARRANZA":
     return "yellow";
   case "CUAUHTEMOC":
@@ -65,7 +65,8 @@ d3.json(link).then(function(data) {
     style: function(feature){
       return {
         color: 'white',
-        fillColor: chooseColor(feature.properties.delegation),
+        // call to the choosecolor funtion
+        fillColor: chooseColor(feature.properties.delegacion),
         fillOpacity: 0.5,
         wight: 1.5
       };
