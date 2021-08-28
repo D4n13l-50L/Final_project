@@ -1,7 +1,26 @@
-# Final_project
-Tec de Monterrey Data Boot Camp Final Project
+# It’s is affordable to be a host in airbnb?
 
-PROJECT DESCRIPTION 
+Tecnologico de Monterrey  Data Analytics Bootcamp Final Project
+
+---
+
+## This is the GitHub repository for our Boot Camp group's final project. 
+
+### Group Members:
+Members:
+Carlos Iván Hernández
+Daniel Romero Sol
+Edoardo Zapata
+Juan Francisco Camberos Sánchez
+Pablo Villalpando Alvarez
+
+
+
+---
+
+## PROJECT DESCRIPTION  - Affordability of an Airbnb.
+
+Tec de Monterrey Data Boot Camp Final Project
 
 Airbnb is a internet marketplace to allow any home or deparment owner rentals, It allows you to, for example, rent out your home for a week while you’re away, or rent out your empty looby or garage. One challenge that Airbnb host face is defining the optimal rent price, In many cities or areas renters are presented with a good selection istings and can filter by criteria like price, number of bedrooms, room type, and more.
 
@@ -19,8 +38,14 @@ Each row in the data set is a listing available for rental in Airbnb's site for 
 The most important features this project will look into are the following:
 - Price: nightly price for the rental
 
+## Questions We Would Like to Answer:
+
+- Given the data available,  It’s is affordable to be a host in airbnb?
+    - *Using Listings (Host Info), Calendars (Guest Info), Reviews (Guest Info) , income, housing price, job industries, and rent/buy ratios in a city to help come to this prediction.
 
 
+###### Technologies & Tools Used:
+![Technologies Used](Images/Technologies.png)
 
 
 
