@@ -100,6 +100,15 @@ d3.json(link).then(function(data) {
   }).addTo(myMap);
 });
 
+var airbnb_csv = '../Resources/xd.csv';
+
+//  Grab Airbnb data
+d3.csv(airbnb_csv, function(data) {
+
+      console.log(data.Name);
+      console.log(data.Age);
+});
+
 // mock tables 
 // d3.select("tbody")
 // .selectAll("tr")
