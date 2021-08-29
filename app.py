@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 ##define the methods to calculate everything based on entries give
 @app.route("/",methods=['GET', 'POST'])
-#def model():
+def model():
     #Import csv to fit
     final_df = pd.read_csv('Resources/listings_cleaned.csv')
     #Take away bathrooms text
