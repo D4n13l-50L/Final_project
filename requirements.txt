@@ -23,3 +23,4 @@ sklearn
 threadpoolctl
 urllib3
 Werkzeug
+gunicorn
