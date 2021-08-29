@@ -27,7 +27,7 @@ app = Flask(__name__)
 @app.route("/",methods=['GET', 'POST'])
 #def model():
     #Import csv to fit
-    final_df = pd.read_csv('C:/Users/Juan Fracisco/Desktop/Final_project/Resources/listings_cleaned.csv')
+    final_df = pd.read_csv('Resources/listings_cleaned.csv')
     #Take away bathrooms text
     final_df['bathrooms_text'] = final_df['bathrooms_text'].str.replace('[a-zA-Z- ]', '')
     final_df['bathrooms_text'] = pd.to_numeric(final_df['bathrooms_text'])
